@@ -59,7 +59,3 @@ These transaction hashes belong to the local devnet.
 The manual exercise produced the expected verification failure with `return 1`. After restoring `return 0` and rebuilding, a separate verification run passed.
 
 ![Deployment evidence captured on 9 November](images/offckb-deploy-proof.png)
-
-### Original Participant Note
-
-> toàn bộ lab đều do tôi chạy, khá là mượt vì trước đây tôi có làm các dự án khác về blockchain rồi
