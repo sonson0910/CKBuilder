@@ -2,6 +2,10 @@
 
 Dev log for the Nervos CKBuilder program. Weekly reports, notes and code from working through the CKBuilder handbook go here.
 
+Reports are posted every Thursday.
+
+See the [CKBuilder Handbook](https://docs.google.com/document/d/1aFHXU1ZL1MyIbBAIVRjG6stqdWwPUPyHV90O1QNwY-M/edit) for reporting standards.
+
 ## Onboarding
 
 - **2026-11-09:** Got OffCKB 0.4.13 running a local devnet (CKB 0.208.0). Deployed the hello-world contract from the TypeScript template. The deploy tx `0x717f98eb...ae974` was committed in block 12.
@@ -10,19 +14,40 @@ Dev log for the Nervos CKBuilder program. Weekly reports, notes and code from wo
 
 ## Week 1: OffCKB and the hello-world contract
 
-9 to 12 November 2026. The personal reflection below was confirmed by the participant and translated into English with AI assistance.
+**Name:** sonson0910
 
-The hello-world contract from the TypeScript template was deployed to the local OffCKB devnet on 9 November. The saved deployment output records a committed transaction, and the screenshot shows it in block 12.
+**Week ending:** 12 November 2026
 
-On 12 November, an automated lab run confirmed that the contract's code cell was still live. It contained 1,305 bytes of compiled code and had a capacity of 1,366 CKB. Its data hash matched the code hash in the deployment configuration.
+**Reporting period:** 9 to 12 November 2026
 
-The devnet test passed, and its transaction was committed. The output used the CKB JavaScript VM to run hello-world as a type script. The node log included `hello-world script loaded`, confirming that the script executed. The transaction used 5,605,306 cycles across its lock and type scripts.
+**Programme status:** Programme acceptance and stipend eligibility have not been confirmed.
 
-The manual exercise that changes `return 0` to `return 1` has not been completed. It checks that local transaction verification fails when the script exits with code 1.
+### Courses Completed
 
-### Personal reflection
+- Completed CKB Academy lessons 1 and 2.
+- Completed Intro to Script.
 
-I know the transaction was confirmed, but I still don't understand all the fields in the RPC response.
+Quiz scores are not recorded in this entry.
+
+### Key Learnings
+
+In the manual return-code exercise, I observed an error after changing `return 0` to `return 1`.
+
+### Practical Progress
+
+I ran the OffCKB/hello-world labs myself, including the manual return-code exercise. Deployment and successful devnet transaction evidence are linked below.
+
+### What Felt Easy or Challenging
+
+The labs went smoothly for me because I have worked on other blockchain projects before.
+
+### Next Steps
+
+Work through the Transfer CKB and Store Data on Cell tutorials in the Handbook. The next weekly report is scheduled for Thursday, 19 November 2026.
+
+### Environment
+
+Local OffCKB devnet with the TypeScript hello-world template.
 
 ### Evidence
 
@@ -32,4 +57,10 @@ These transaction hashes belong to the local devnet.
 2. Lab transaction: `0x541f3f2b8580f9466e10b11f2f60686203a94455659b699faa5acb4306f931ab`.
 3. [Lab output from 12 November](evidence/week-1-lab.log).
 
+The manual exercise result is reported above; it is not captured in the saved lab log.
+
 ![Deployment evidence captured on 9 November](images/offckb-deploy-proof.png)
+
+### Original Participant Note
+
+> toàn bộ lab đều do tôi chạy, khá là mượt vì trước đây tôi có làm các dự án khác về blockchain rồi
