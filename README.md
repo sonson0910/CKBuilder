@@ -54,10 +54,11 @@ Local OffCKB devnet with the TypeScript hello-world template.
 These transaction hashes belong to the local devnet.
 
 1. Deployment: `0x717f98ebdc961a4a5daa2cdbff938c38a5e39f2260c73ba36f738c56916ae974`.
-2. Lab transaction: `0x541f3f2b8580f9466e10b11f2f60686203a94455659b699faa5acb4306f931ab`.
-3. [Lab output from 12 November](evidence/week-1-lab.log).
+2. Lab transaction from the participant's 17:25 run: `0x6d192576dcec05e4a39e7ee702d8263f8ef85a1a902b722b549d5eda3e8dccb2`. Committed in block 72, using 5,617,091 cycles.
+3. [Participant terminal excerpts, including Lab 4](evidence/week-1-participant-run.log).
+4. [Verification after restoring return 0](evidence/week-1-restored-test.log): the mock test passed.
 
-The manual exercise result is reported above; it is not captured in the saved lab log.
+The manual exercise produced the expected verification failure with `return 1`. After restoring `return 0` and rebuilding, a separate verification run passed.
 
 ![Deployment evidence captured on 9 November](images/offckb-deploy-proof.png)
 

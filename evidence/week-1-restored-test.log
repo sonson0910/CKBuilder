@@ -1,0 +1,46 @@
+(node:2581948) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+  console.log
+
+    ╔════════════════════════════════════════════════════════
+    ║ Script Verification Summary
+    ║ Type: input lock script
+    ║ Index: 0
+    ╠════════════════════════════════════════════════════════
+    ║ STDOUT:
+    ║ Run result: 0
+    ║ All cycles: 539
+    ╠════════════════════════════════════════════════════════
+    ║ STDERR:
+    ║
+    ╚════════════════════════════════════════════════════════
+
+      at ScriptVerificationResult.reportSummary (node_modules/ckb-testtool/dist.commonjs/unittest/core.js:106:17)
+
+  console.log
+
+    ╔════════════════════════════════════════════════════════
+    ║ Script Verification Summary
+    ║ Type: input type script
+    ║ Index: 0
+    ╠════════════════════════════════════════════════════════
+    ║ STDOUT:
+    ║ Script log: [DEBUG] hello-world script loaded: {}
+    ║ Run result: 0
+    ║ All cycles: 3957269(3.8M)
+    ╠════════════════════════════════════════════════════════
+    ║ STDERR:
+    ║
+    ╚════════════════════════════════════════════════════════
+
+      at ScriptVerificationResult.reportSummary (node_modules/ckb-testtool/dist.commonjs/unittest/core.js:106:17)
+
+PASS tests/hello-world.mock.test.ts
+  hello-world contract
+    ✓ should execute successfully (269 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.02 s
+Ran all test suites matching /tests\/hello-world.mock.test.ts/i.

@@ -1,0 +1,52 @@
+Selected excerpts from terminal output supplied by the participant.
+Run completed on 2026-11-12 at 17:25 +07.
+Sections below omit unrelated output from the original terminal transcript.
+
+== Lab 1 - code cell
+capacity : 136600000000 shannons = 1366 CKB
+data     : 1305 bytes of compiled contract
+check    : data_hash == codeHash in deployment/scripts.json
+
+== Lab 2 - devnet transaction
+$ npx jest tests/hello-world.devnet.test.ts
+    ✓ should execute successfully (69 ms)
+Tests:       1 passed, 1 total
+tx hash  : 0x6d192576dcec05e4a39e7ee702d8263f8ef85a1a902b722b549d5eda3e8dccb2
+
+Fields from the get_transaction response:
+  "status": "committed",
+  "block": "0x48",
+  "cycles": "0x55b5c3",
+
+cycles   : 5617091 (lock + type scripts together)
+
+== Lab 3 - node debug output
+2026-11-12 10:25:19.774 +00:00 GlobalRt-9 DEBUG ckb_script::verify  script group: Byte32(0x3e56e85c04079cf0a3d779968d8f0bed64fae3d2011ee9b2c6e4b36df1786f8a) DEBUG OUTPUT: [DEBUG] hello-world script loaded: {}
+
+Week 1 lab run on 2026-11-12 17:25 +07
+# devnet stopped
+
+== Lab 4 - manual return-code exercise
+The participant's command changed return 0 to return 1, built the contract,
+ran the mock test, restored return 0, and built the contract again.
+
+Selected output from the test with return 1:
+    ║ Type: input type script
+    ║ Index: 0
+    ║ Script log: [DEBUG] hello-world script loaded: {}
+    ║ Run result: 1
+    ║ All cycles: 3957269(3.8M)
+
+ FAIL  tests/hello-world.mock.test.ts
+  hello-world contract
+    ✕ should execute successfully (249 ms)
+
+    Message:
+      Transaction verification failed. See details above.
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+
+Final rebuild after restoring return 0:
+✅ Successfully built: hello-world with release version
+🎉 All contracts built successfully!
