@@ -27,6 +27,8 @@ See the [CKBuilder Handbook](https://docs.google.com/document/d/1aFHXU1ZL1MyIbBA
 
 ### Key Learnings
 
+I have worked with Cardano before. This week I moved into new material: how CKB works as a chain.
+
 In the manual return-code exercise, I observed an error after changing `return 0` to `return 1`.
 
 ### Practical Progress
