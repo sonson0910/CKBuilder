@@ -20,14 +20,10 @@ See the [CKBuilder Handbook](https://docs.google.com/document/d/1aFHXU1ZL1MyIbBA
 
 **Reporting period:** 9 to 12 November 2026
 
-**Programme status:** Programme acceptance and stipend eligibility have not been confirmed.
-
 ### Courses Completed
 
 - Completed CKB Academy lessons 1 and 2.
 - Completed Intro to Script.
-
-Quiz scores are not recorded in this entry.
 
 ### Key Learnings
 
