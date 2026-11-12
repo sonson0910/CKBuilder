@@ -1,0 +1,102 @@
+
+== Starting the OffCKB devnet
+# OffCKB devnet RPC at http://127.0.0.1:8114, tip block 66
+
+== Lab 1 - the cell that stores the hello-world code
+$ rpc get_live_cell '[{"tx_hash":"0x717f98eb...","index":"0x0"},true]'
+{
+  "status": "live",
+  "capacity": "0x1fcdfe9600",
+  "lock": {
+    "args": "0x4118c8c16749bf126b22468d030bf9de7da3717b",
+    "code_hash": "0x9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8",
+    "hash_type": "type"
+  },
+  "type": null,
+  "data_hash": "0x68e6c55c513149a84bfb1d733cefda13cc8189a8cca2744e7487a6ce4167c0b2"
+}
+capacity : 136600000000 shannons = 1366 CKB
+data     : 1305 bytes of compiled contract
+overhead : 8 capacity + 32 code_hash + 1 hash_type + 20 lock args = 61 bytes
+check    : 1305 + 61 = 1366 CKB
+check    : data_hash == codeHash in deployment/scripts.json
+
+== Lab 2 - send a tx whose output uses hello-world as its type script
+$ npx jest tests/hello-world.devnet.test.ts
+    ✓ should execute successfully (63 ms)
+Tests:       1 passed, 1 total
+tx hash  : 0x541f3f2b8580f9466e10b11f2f60686203a94455659b699faa5acb4306f931ab
+$ rpc get_transaction '["0x541f3f2b..."]'
+{
+  "status": "committed",
+  "block": "0x45",
+  "cycles": "0x5587ba",
+  "cell_deps": [
+    {
+      "dep_type": "code",
+      "tx_hash": "0x1bb87da347...",
+      "index": "0xf"
+    },
+    {
+      "dep_type": "code",
+      "tx_hash": "0x717f98ebdc...",
+      "index": "0x0"
+    },
+    {
+      "dep_type": "dep_group",
+      "tx_hash": "0x4d804f1495...",
+      "index": "0x0"
+    }
+  ],
+  "inputs": [
+    {
+      "tx_hash": "0x8c12e237fb...",
+      "index": "0x1"
+    }
+  ],
+  "outputs": [
+    {
+      "capacity": "0x3bfa28100",
+      "lock": {
+        "args": "0x8e42b1999f265a0078503c4acec4d5e134534297",
+        "code_hash": "0x9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8",
+        "hash_type": "type"
+      },
+      "type": {
+        "args": "0x000068e6c55c513149a84bfb1d733cefda13cc8189a8cca2744e7487a6ce4167c0b2040000000000000000000000000000000000000000000000000000000000000000",
+        "code_hash": "0xac4db0d0c028ba0d73dec9ee5e6a3c0c98fcdfca895402a3285d680e964dcb46",
+        "hash_type": "type"
+      }
+    },
+    {
+      "capacity": "0xeebd1b58471b8",
+      "lock": {
+        "args": "0x8e42b1999f265a0078503c4acec4d5e134534297",
+        "code_hash": "0x9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8",
+        "hash_type": "type"
+      },
+      "type": null
+    }
+  ],
+  "outputs_data": [
+    "0x",
+    "0x"
+  ]
+}
+output 0 : 161 CKB = 8 capacity + lock (32+1+20) + type (32+1+67 args) + 0 data
+type args: 0000 | hello-world codeHash | 04 (= data2) | 32 zero bytes for the JS contract
+witness  : 85 bytes (WitnessArgs holding the 65-byte secp256k1 signature)
+cycles   : 5605306 (lock + type scripts together)
+
+== Lab 3 - proof the node ran hello-world (its debug log)
+$ grep 'hello-world script loaded' ~/.local/share/offckb-nodejs/devnet/data/logs/run.log | tail -1
+2026-11-12 09:04:50.540 +00:00 GlobalRt-0 DEBUG ckb_script::verify  script group: Byte32(0x3e56e85c04079cf0a3d779968d8f0bed64fae3d2011ee9b2c6e4b36df1786f8a) DEBUG OUTPUT: [DEBUG] hello-world script loaded: {}
+
+== Lab 4 - do this one by hand
+1. In contracts/hello-world/src/index.ts change 'return 0;' to 'return 1;'
+2. cd /home/son/Projects/ckbuilders/hello-ckb && npm run build && npx jest tests/hello-world.mock.test.ts
+   expect FAIL with 'Run result: 1'
+3. Change it back to 'return 0;' and run npm run build again
+
+Week 1 lab run on 2026-11-12 16:05 +07
+# devnet stopped
