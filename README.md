@@ -35,7 +35,7 @@ I ran the OffCKB/hello-world labs myself, including the manual return-code exerc
 
 ### What Felt Easy or Challenging
 
-The labs went smoothly for me because I have worked on other blockchain projects before.
+The labs went smoothly for me because I have worked on other blockchain projects before. The harder part was reading the RPC output: I know the transaction was confirmed, but I still don't understand all the fields in the RPC response.
 
 ### Next Steps
 
