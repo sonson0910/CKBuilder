@@ -10,7 +10,7 @@ Dev log for the Nervos CKBuilder program. Weekly reports, notes and code from wo
 
 ## Week 1: OffCKB and the hello-world contract
 
-9 to 12 November 2026. AI assisted with this report and ran the lab on 12 November. The personal reflection below was confirmed by the participant and translated into English with AI assistance.
+9 to 12 November 2026. The personal reflection below was confirmed by the participant and translated into English with AI assistance.
 
 The hello-world contract from the TypeScript template was deployed to the local OffCKB devnet on 9 November. The saved deployment output records a committed transaction, and the screenshot shows it in block 12.
 
@@ -18,7 +18,7 @@ On 12 November, an automated lab run confirmed that the contract's code cell was
 
 The devnet test passed, and its transaction was committed. The output used the CKB JavaScript VM to run hello-world as a type script. The node log included `hello-world script loaded`, confirming that the script executed. The transaction used 5,605,306 cycles across its lock and type scripts.
 
-The manual exercise that changes `return 0` to `return 1` has not been completed. That exercise checks how a script rejects a transaction.
+The manual exercise that changes `return 0` to `return 1` has not been completed. It checks that local transaction verification fails when the script exits with code 1.
 
 ### Personal reflection
 
