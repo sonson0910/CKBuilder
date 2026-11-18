@@ -75,14 +75,9 @@ The manual exercise produced the expected verification failure with `return 1`. 
 
 ### Key Learnings
 
-- **What is the same as Cardano:** both CKB and Cardano use unspent outputs as inputs to create new outputs. A transfer can create two outputs: one for the receiver and one that returns the change to the sender's wallet.
-- **What is different is how capacity is counted:** on CKB, 1 CKB corresponds to 1 byte of capacity. The cell in my lab needed 89 CKB to hold 61 bytes of basic structure and 28 bytes of data. Cardano can also store data directly in an output with an inline datum, but its minimum ADA is calculated from the size of the whole output.
-
-I also learned three things from my own transactions:
-
-1. CKB has no separate fee field. The fee is total inputs minus total outputs, which was 465 shannons for my transfer. Cardano writes the fee into the transaction body.
-2. The CKB locked as capacity is not spent. It comes back when the cell is consumed.
-3. Even a plain signature check is a script on CKB: the secp256k1 lock runs in CKB-VM, so my simple transfer still used about 1.6 million cycles. Cardano checks key signatures directly in the ledger, without running a script.
+1. The fee is the difference between total input and output capacity. For my transfer, it was 465 shannons.
+2. When I spend a cell, I can reuse the CKB it held as capacity.
+3. My transfer used about 1.6 million cycles to run the lock script that checks the signature.
 
 ### Practical Progress
 
