@@ -88,11 +88,11 @@ I ran both tutorial dApps from the docs repo against the local OffCKB devnet, us
 
 ### What Felt Easy or Challenging
 
-Both labs went smoothly. One thing was a bit confusing: my first Store Data on Cell transaction was already committed on chain, but the dApp page kept saying the message cell was not live yet.
+Both labs went smoothly. I was confused when the dApp still said the message cell was "not live yet" after my first Store Data on Cell transaction was confirmed on-chain.
 
 ### Next Steps
 
-Work through the Create Fungible Token tutorial in the Handbook. The next weekly report is scheduled for Thursday, 26 November 2026.
+I'll work through the Create Fungible Token tutorial in the Handbook. My next weekly report is scheduled for Thursday, 26 November 2026.
 
 ### Environment
 
