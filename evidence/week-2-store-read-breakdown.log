@@ -1,0 +1,21 @@
+== Your transaction, broken down
+tx hash  : 0x4a0fa1f21839bd0e5625ad909acca77dbf917077ca2dfeb4b1c5ff58bda04ead
+$ rpc get_transaction '["0x4a0fa1f2..."]'
+status   : committed in block 1670
+cycles   : 1631152
+
+INPUTS (cells this tx consumed)
+  in  0 : 41998967.99995272 CKB, owner account 0, out_point 0xfa7bf5ca...:1, now unknown
+
+OUTPUTS (cells this tx created)
+  out 0 : 89 CKB, owner account 0, data 28 bytes, needs at least 89 CKB, now live
+           data hex : 0x68656c6c6f20636f6d6d6f6e206b6e6f776c65646765206261736521
+           as text  : "hello common knowledge base!"
+  out 1 : 41998878.99994779 CKB, owner account 0, data 0 bytes, needs at least 61 CKB, now live
+
+fee      : 41998967.99995272 - 41998967.99994779 = 493 shannons (0.00000493 CKB)
+tx size  : 488 bytes serialized, plus 4 bytes for its offset in the block = 492 bytes
+fee rate : 1002 shannons per 1000 bytes (CCC's completeFeeBy(signer, 1000))
+witness  : 85 bytes in witnesses[0] (holds the signature)
+
+Week 2 store lab, read back in the dApp on 2026-11-18 14:07 +07

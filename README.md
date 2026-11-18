@@ -59,3 +59,62 @@ These transaction hashes belong to the local devnet.
 The manual exercise produced the expected verification failure with `return 1`. After restoring `return 0` and rebuilding, a separate verification run passed.
 
 ![Deployment evidence captured on 9 November](images/offckb-deploy-proof.png)
+
+## Week 2: Transfer CKB and Store Data on Cell
+
+**Name:** sonson0910
+
+**Week ending:** 19 November 2026
+
+**Reporting period:** 13 to 19 November 2026
+
+### Courses Completed
+
+- Completed the Transfer CKB tutorial.
+- Completed the Store Data on Cell tutorial.
+
+### Key Learnings
+
+- **What is the same as Cardano:** both CKB and Cardano use unspent outputs as inputs to create new outputs. A transfer can create two outputs: one for the receiver and one that returns the change to the sender's wallet.
+- **What is different is how capacity is counted:** on CKB, 1 CKB corresponds to 1 byte of capacity. The cell in my lab needed 89 CKB to hold 61 bytes of basic structure and 28 bytes of data. Cardano can also store data directly in an output with an inline datum, but its minimum ADA is calculated from the size of the whole output.
+
+I also learned three things from my own transactions:
+
+1. CKB has no separate fee field. The fee is total inputs minus total outputs, which was 465 shannons for my transfer. Cardano writes the fee into the transaction body.
+2. The CKB locked as capacity is not spent. It comes back when the cell is consumed.
+3. Even a plain signature check is a script on CKB: the secp256k1 lock runs in CKB-VM, so my simple transfer still used about 1.6 million cycles. Cardano checks key signatures directly in the ledger, without running a script.
+
+### Practical Progress
+
+I ran both tutorial dApps from the docs repo against the local OffCKB devnet, using devnet account 0 as the sender.
+
+- Transfer CKB: sent 62 CKB to devnet account 1. The transaction consumed one input cell and created two outputs: 62 CKB for the receiver and the change back to account 0. The fee was 465 shannons.
+- Store Data on Cell: wrote "hello common knowledge base!" (28 bytes) into a cell. The cell holds 89 CKB, which is the 61 CKB minimum for a plain cell plus 1 CKB per byte of data. I then read the message back in the dApp.
+
+### What Felt Easy or Challenging
+
+Both labs went smoothly. One thing was a bit confusing: my first Store Data on Cell transaction was already committed on chain, but the dApp page kept saying the message cell was not live yet.
+
+### Next Steps
+
+Work through the Create Fungible Token tutorial in the Handbook. The next weekly report is scheduled for Thursday, 26 November 2026.
+
+### Environment
+
+Local OffCKB 0.4.13 devnet (CKB 0.208.0). The `simple-transfer` and `store-data-on-cell` example dApps from nervosnetwork/docs.nervos.org, served locally on port 1234.
+
+### Evidence
+
+These transaction hashes belong to the local devnet.
+
+1. Transfer: `0x4370c4a722daf3194f0029f2b3c203f73709fd4d7704164d2d03a953c26b4984`. Committed in block 147, using 1,646,303 cycles. [Transaction breakdown](evidence/week-2-transfer-breakdown.log).
+2. First store write: `0x2aba70bbb733b3c0ba5cfa81346bd32cedea8ee56e483491291c7e3565a3008e`. Committed in block 223, but the dApp tab kept reporting that the message cell was not live yet. [Terminal output](evidence/week-2-store-first-run.log).
+3. Store write read back in the dApp: `0x4a0fa1f21839bd0e5625ad909acca77dbf917077ca2dfeb4b1c5ff58bda04ead`. Committed in block 1670, using 1,631,152 cycles. [Transaction breakdown](evidence/week-2-store-read-breakdown.log).
+
+![Transfer CKB dApp after sending 62 CKB](images/week-2-transfer-dapp.png)
+
+![Transfer transaction breakdown](images/week-2-transfer-breakdown.png)
+
+![Store Data on Cell dApp after reading the message back](images/week-2-store-dapp.png)
+
+![Store transaction breakdown](images/week-2-store-breakdown.png)

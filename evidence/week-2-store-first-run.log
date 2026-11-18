@@ -1,0 +1,37 @@
+$ cd docs-examples/examples/dApp/store-data-on-cell && npm start
+Synchronized Devnet system scripts with OffCKB.
+Server running at http://localhost:1234
+
+== Your turn, in the browser
+1. Open http://localhost:1234
+2. Keep the default key, type a message, click Write, wait for 'Message ready', click Read
+3. Take a screenshot of the page showing the tx hash
+Press Enter here when the tx hash is on the page...
+
+== Your transaction, broken down
+tx hash  : 0x2aba70bbb733b3c0ba5cfa81346bd32cedea8ee56e483491291c7e3565a3008e
+$ rpc get_transaction '["0x2aba70bb..."]'
+status   : committed in block 223
+cycles   : 1639155
+
+INPUTS (cells this tx consumed)
+  in  0 : 41999132.99996245 CKB, owner account 0, out_point 0x4370c4a7...:1, now unknown
+
+OUTPUTS (cells this tx created)
+  out 0 : 89 CKB, owner account 0, data 28 bytes, needs at least 89 CKB, now live
+           data hex : 0x68656c6c6f20636f6d6d6f6e206b6e6f776c65646765206261736521
+           as text  : "hello common knowledge base!"
+  out 1 : 41999043.99995752 CKB, owner account 0, data 0 bytes, needs at least 61 CKB, now live
+
+fee      : 41999132.99996245 - 41999132.99995752 = 493 shannons (0.00000493 CKB)
+tx size  : 488 bytes serialized, plus 4 bytes for its offset in the block = 492 bytes
+fee rate : 1002 shannons per 1000 bytes (CCC's completeFeeBy(signer, 1000))
+witness  : 85 bytes in witnesses[0] (holds the signature)
+
+== Balances after
+account 0 : 41999043.99995752 CKB
+account 1 : 42000062 CKB
+
+Week 2 store lab run on 2026-11-18 11:35 +07
+# dApp stopped
+# devnet stopped

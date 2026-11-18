@@ -1,0 +1,18 @@
+$ ./week2-lab.sh inspect 0x4370c4a722daf3194f0029f2b3c203f73709fd4d7704164d2d03a953c26b4984
+$ rpc get_transaction '["0x4370c4a7..."]'
+status   : committed in block 147
+cycles   : 1646303
+
+INPUTS (cells this tx consumed)
+  in  0 : 41999194.9999671 CKB, owner account 0, out_point 0x6d192576...:1, now unknown
+
+OUTPUTS (cells this tx created)
+  out 0 : 62 CKB, owner account 1, data 0 bytes, needs at least 61 CKB, now live
+  out 1 : 41999132.99996245 CKB, owner account 0, data 0 bytes, needs at least 61 CKB, now live
+
+fee      : 41999194.9999671 - 41999194.99996245 = 465 shannons (0.00000465 CKB)
+tx size  : 460 bytes serialized, plus 4 bytes for its offset in the block = 464 bytes
+fee rate : 1002 shannons per 1000 bytes (CCC's completeFeeBy(signer, 1000))
+witness  : 85 bytes in witnesses[0] (holds the signature)
+
+# rendered 2026-11-18 11:02 +07 from the OffCKB devnet
