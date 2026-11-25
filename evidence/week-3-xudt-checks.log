@@ -1,0 +1,26 @@
+token args : 0x7de82d61a7eb2ec82b0dc653e558ba120efcbfbb44dac87c12972d05bf25065300000000 (lock hash of account 0 + flags 00000000)
+account 1 holds 10 tokens in 0x626ad9ca1c4ec1778406845255a83330327085140fcb7b071043ea1f3502ae9a:0
+
+case 1 : account 0, the issuer, mints 5 new tokens
+  expect : accepted
+  node   : accepted (as expected), 1645161 cycles
+
+case 2 : account 1 turns its 10 tokens into 11
+  expect : rejected
+  node   : rejected (as expected), Client request error TransactionFailedToVerify: Verification failed Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code -52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/1a1e4fef34f5982906f745b048fe7b1089647e82346074e0f32c2ec
+
+case 3 : account 1 sends 4 of its 10 tokens to account 0 and keeps 6
+  expect : accepted
+  node   : accepted (as expected), 1651732 cycles
+
+case 4 : account 1 burns 4 of its 10 tokens (10 in, 6 out)
+  expect : accepted
+  node   : accepted (as expected), 1683787 cycles
+
+case 5 : account 0 mints into a token cell that holds 145 CKB
+  rule   : a token cell occupies 8 (capacity) + 53 (lock) + 69 (type) + 16 (data) = 146 bytes, so it needs 146 CKB
+  expect : rejected
+  node   : rejected (as expected), Client request error TransactionFailedToVerify: Verification failed Transaction(InsufficientCellCapacity(Outputs[0]): expected occupied capacity (0x3663a5200) <= capacity (0x360447100))
+
+5 of 5 cases behaved as expected. Nothing was sent to the chain.
+exit code 0

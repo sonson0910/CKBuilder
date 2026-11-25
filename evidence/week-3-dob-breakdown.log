@@ -1,0 +1,52 @@
+== Transaction 1 of 2, broken down
+tx hash  : 0x53cfcea97a7403ce2e7816f5dc34a55115bddb32a26ffe9cf4fb287710e25fb9
+$ rpc get_transaction '["0x53cfcea9..."]'
+status   : committed in block 1809
+cycles   : 2046909
+
+INPUTS (cells this tx consumed)
+  in  0 : 89 CKB, owner account 0, data 28 bytes, out_point 0x2aba70bb...:0, now spent
+  in  1 : 76 CKB, owner account 0, data 15 bytes, out_point 0xfa7bf5ca...:0, now spent
+  in  2 : 89 CKB, owner account 0, data 28 bytes, out_point 0x4a0fa1f2...:0, now spent
+  in  3 : 41998586.99993309 CKB, owner account 0, plain CKB, out_point 0x626ad9ca...:2, now spent
+
+OUTPUTS (cells this tx created)
+  out 0 : 7663 CKB, owner account 0, Spore DOB, data 7536 bytes, needs at least 7662 CKB, now live
+           type args: Spore ID 0xfba37704...78eb = hash(first input, output index), so no other cell can get this ID
+           data     : SporeData { content-type: image/jpeg, content: 7502 bytes, cluster: none }
+           note     : the bytes are really image/png. The content-type is a label the dApp wrote; the Spore script does not check it.
+           content  : saved to week3-dob-53cfcea9.png, sha256 91f2253a4f9832b0c5c890c4155224cdf3317d5e1f9a530cb88b3346e35a5baf
+  out 1 : 41991177.99984742 CKB, owner account 0, plain CKB, data 0 bytes, needs at least 61 CKB, now spent
+
+fee      : 41998840.99993309 - 41998840.99984742 = 8567 shannons (0.00008567 CKB)
+tx size  : 8563 bytes serialized, plus 4 bytes for its offset in the block = 8567 bytes
+fee rate : 1000 shannons per 1000 bytes (spore-sdk pays the node's min_fee_rate from tx_pool_info)
+witness  : 85 bytes in witnesses[0] (holds the signature)
+
+== Transaction 2 of 2, broken down
+tx hash  : 0x23b6071c708d1f3ed79b538a8f65e14194908a8d892b7ba52d7d5f0127ca1f60
+$ rpc get_transaction '["0x23b6071c..."]'
+status   : committed in block 1814
+cycles   : 2307851
+
+INPUTS (cells this tx consumed)
+  in  0 : 41991177.99984742 CKB, owner account 0, plain CKB, out_point 0x53cfcea9...:1, now spent
+
+OUTPUTS (cells this tx created)
+  out 0 : 15677 CKB, owner account 0, Spore DOB, data 15550 bytes, needs at least 15676 CKB, now live
+           type args: Spore ID 0x791f53ce...d57e = hash(first input, output index), so no other cell can get this ID
+           data     : SporeData { content-type: image/jpeg, content: 15516 bytes, cluster: none }
+           note     : the bytes are really image/png. The content-type is a label the dApp wrote; the Spore script does not check it.
+           content  : saved to week3-dob-23b6071c.png, sha256 bb66ea11acb55586e478770d3193234e4896f59fdad9d57d6a816db844d703b5
+  out 1 : 41975500.99968317 CKB, owner account 0, plain CKB, data 0 bytes, needs at least 61 CKB, now live
+
+fee      : 41991177.99984742 - 41991177.99968317 = 16425 shannons (0.00016425 CKB)
+tx size  : 16421 bytes serialized, plus 4 bytes for its offset in the block = 16425 bytes
+fee rate : 1000 shannons per 1000 bytes (spore-sdk pays the node's min_fee_rate from tx_pool_info)
+witness  : 85 bytes in witnesses[0] (holds the signature)
+
+== Balances after
+account 0 : 41975500.99968317 CKB in plain cells; xUDT 0x7de82d61...0000: 32; 2 Spore DOBs; 5 other cells from earlier labs
+account 1 : 42000062 CKB in plain cells; xUDT 0x7de82d61...0000: 10
+
+Week 3 dob lab run on 2026-11-25 11:01 +07

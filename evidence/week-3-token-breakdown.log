@@ -1,0 +1,55 @@
+== Transaction 1 of 2, broken down
+tx hash  : 0x139107a6ae9277cdd47956a4ff3e70e81f707762602dfa29cc57ba7c217c667b
+$ rpc get_transaction '["0x139107a6..."]'
+status   : committed in block 1759
+cycles   : 1650182
+
+INPUTS (cells this tx consumed)
+  in  0 : 41998878.99994779 CKB, owner account 0, plain CKB, out_point 0x4a0fa1f2...:1, now spent
+
+OUTPUTS (cells this tx created)
+  out 0 : 146 CKB, owner account 0, xUDT, 42 tokens, data 16 bytes, needs at least 146 CKB, now spent
+           type args: 0x7de82d61...0653 (lock hash of account 0) + flags 00000000
+           data     : 0x2a000000000000000000000000000000 = 42 as a 16-byte little-endian number
+  out 1 : 41998732.99994173 CKB, owner account 0, plain CKB, data 0 bytes, needs at least 61 CKB, now spent
+
+xUDT token 0x7de82d61...0000: inputs hold 0, outputs hold 42
+  owner mode: yes. The lock hash of input 0 equals the first 32 bytes of the token args, so the xUDT script lets this tx create or burn tokens.
+
+fee      : 41998878.99994779 - 41998878.99994173 = 606 shannons (0.00000606 CKB)
+tx size  : 602 bytes serialized, plus 4 bytes for its offset in the block = 606 bytes
+fee rate : 1000 shannons per 1000 bytes (CCC's completeFeeBy(signer, 1000))
+witness  : 85 bytes in witnesses[0] (holds the signature)
+
+== Transaction 2 of 2, broken down
+tx hash  : 0x626ad9ca1c4ec1778406845255a83330327085140fcb7b071043ea1f3502ae9a
+$ rpc get_transaction '["0x626ad9ca..."]'
+status   : committed in block 1791
+cycles   : 1658843
+
+INPUTS (cells this tx consumed)
+  in  0 : 146 CKB, owner account 0, xUDT, 42 tokens, out_point 0x139107a6...:0, now spent
+  in  1 : 41998732.99994173 CKB, owner account 0, plain CKB, out_point 0x139107a6...:1, now spent
+
+OUTPUTS (cells this tx created)
+  out 0 : 146 CKB, owner account 1, xUDT, 10 tokens, data 16 bytes, needs at least 146 CKB, now live
+           type args: 0x7de82d61...0653 (lock hash of account 0) + flags 00000000
+           data     : 0x0a000000000000000000000000000000 = 10 as a 16-byte little-endian number
+  out 1 : 146 CKB, owner account 0, xUDT, 32 tokens, data 16 bytes, needs at least 146 CKB, now live
+           type args: 0x7de82d61...0653 (lock hash of account 0) + flags 00000000
+           data     : 0x20000000000000000000000000000000 = 32 as a 16-byte little-endian number
+  out 2 : 41998586.99993309 CKB, owner account 0, plain CKB, data 0 bytes, needs at least 61 CKB, now live
+
+xUDT token 0x7de82d61...0000: inputs hold 42, outputs hold 42
+  owner mode: yes. The lock hash of input 0 equals the first 32 bytes of the token args, so the xUDT script lets this tx create or burn tokens.
+
+fee      : 41998878.99994173 - 41998878.99993309 = 864 shannons (0.00000864 CKB)
+tx size  : 860 bytes serialized, plus 4 bytes for its offset in the block = 864 bytes
+fee rate : 1000 shannons per 1000 bytes (CCC's completeFeeBy(signer, 1000))
+witness  : 85 bytes in witnesses[0] (holds the signature)
+
+== Balances after
+account 0 : 41998586.99993309 CKB in plain cells; xUDT 0x7de82d61...0000: 32; 8 other cells from earlier labs
+account 1 : 42000062 CKB in plain cells; xUDT 0x7de82d61...0000: 10
+
+Week 3 token lab run on 2026-11-25 10:57 +07

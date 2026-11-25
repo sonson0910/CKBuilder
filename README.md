@@ -12,6 +12,7 @@ See the [CKBuilder Handbook](https://docs.google.com/document/d/1aFHXU1ZL1MyIbBA
 |---|---|---|
 | [Week 1](reports/week-01.md) | 12 November 2026 | OffCKB and the hello-world contract |
 | [Week 2](reports/week-02.md) | 19 November 2026 | Transfer CKB and Store Data on Cell |
+| [Week 3](reports/week-03.md) | 26 November 2026 | Create a Fungible Token (xUDT) and a DOB (Spore) |
 
 ## Onboarding
 
